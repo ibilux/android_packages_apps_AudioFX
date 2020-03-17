@@ -163,7 +163,9 @@ public class AudioFxService extends Service
                             sessionId, pkg, stream));
                 }
                 AudioSessionInfo info = new AudioSessionInfo(sessionId, stream, -1, -1, -1);
-                mSessionManager.addSession(info);
+                if (mSessionManager != null) {
+                    mSessionManager.addSession(info);
+                }
 
             } else if (action.equals(AudioEffect.ACTION_CLOSE_AUDIO_EFFECT_CONTROL_SESSION)) {
 
